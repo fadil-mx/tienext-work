@@ -11,7 +11,7 @@ import {
   FormMessage,
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
-import { Signup } from '@/types'
+import { Login, Signup } from '@/types'
 import { signup } from '@/lib/validator'
 import { useRouter } from 'next/navigation'
 
@@ -21,7 +21,7 @@ const SignUp = () => {
     resolver: zodResolver(signup),
   })
 
-  const onSubmit = async (value) => {
+  const onSubmit = async (value: Login) => {
     try {
       const response = await fetch('/api/signup', {
         method: 'POST',
@@ -98,6 +98,7 @@ const SignUp = () => {
               <FormItem>
                 <FormControl>
                   <Input
+                    type='password'
                     className='h-12 text-lg'
                     placeholder='password'
                     {...field}

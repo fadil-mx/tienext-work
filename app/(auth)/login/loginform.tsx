@@ -21,7 +21,7 @@ const Loginform = () => {
     resolver: zodResolver(loginvalidator),
   })
 
-  const onSubmit = async (data) => {
+  const onSubmit = async (data: Login) => {
     try {
       const response = await fetch('/api/login', {
         method: 'POST',
@@ -32,9 +32,9 @@ const Loginform = () => {
       })
       const body = await response.json()
       if (body.ok) {
+        router.push('/')
         console.log('Login successful')
         alert(body.message)
-        router.push('/')
       } else {
         console.log('Login failed')
         alert(body.message)
