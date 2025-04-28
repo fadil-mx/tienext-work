@@ -125,7 +125,15 @@ const SignUp = () => {
           </p>
           <p className='font-bold'>
             Already have an account?
-            <span className=' text-red-700 underline'> Go to login</span>{' '}
+            <span
+              className=' text-red-700 underline cursor-pointer'
+              onClick={() => {
+                router.push('/login')
+              }}
+            >
+              {' '}
+              Go to login
+            </span>{' '}
           </p>
         </form>
       </Form>
